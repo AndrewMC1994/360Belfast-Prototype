@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Titanic Quarter</title>
     <meta name="description" content="Composite — A-Frame">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.1/aframe.min.js"></script>
-      <script src="js/dialog-box-popup.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/aframeTEST.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/aframe-ui-modal-component.js"></script>
+    <script src="js/aframe-src-fit-component.js"></script>
+</head>
 
-  </head>
-  <body>
+<body>
 
-      
-      
     <a-scene>
         
+            <script>
+        AFRAME.registerComponent('audiohandler', {
+            init: function() {
+                let playing = false;
+                let audio = document.querySelector("#audio");
+                this.el.addEventListener('click', () => {
+                    if (!playing) {
+                        audio.play();
+                    } else {
+                        audio.pause();
+                        audio.currentTime = 0;
+                    }
+                    playing = !playing;
+                });
+            }
+        })
+    </script>
+
         <!-- CURSOR ENTITY -->
-        <a-entity rotation="0 0 0" position="0 1.5 0">
-            <a-entity id="camera" camera look-controls rotation="0 0 0" wasd-controls>
+        <a-entity rotation="0 0 0" position="0 0 0">
+            <a-entity id="camera" far: 20; camera look-controls rotation="0 0 0" wasd-controls-enabled="false">
                 <!-- MAIN CURSOR -->
-                <a-entity raycaster="objects: .clickable" cursor ="fuse: true; maxDistance: 500; timeout: 1500;" id="cursor-main" position="0 0 -1.5" geometry="primitive: ring; radiusOuter: 0.04; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;" material="color: #439DC2;">
+                <a-entity raycaster="interval: 200; objects: .clickable" cursor="fuse: true; maxDistance: 500; timeout: 1500;" id="cursor-main" position="0 0 -1.5" geometry="primitive: ring; radiusOuter: 0.04; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;" material="color: #439DC2;">
                     <a-animation begin="cursor-fusing" attribute="geometry.thetaLength" fill="forwards" from="360" to="0" easing="ease-in"></a-animation>
                     <a-animation begin="mouseleave" attribute="geometry.thetaLength" fill="backwards" from="0" to="360" dur="0"></a-animation>
                 </a-entity>
@@ -27,61 +45,69 @@
                 </a-entity>
             </a-entity>
         </a-entity>
-        
-      <a-assets>
-        <img id="360" src="img/titanic360.jpg">
-        <img id="menu" src="img/menu.png">
-          <img id="option1" src="img/option1.png">
-          <img id="option2" src="img/option2.png">
-      
-      </a-assets>
-        
-        
-        
 
-      <a-sky src="#360"></a-sky>
-                
-                          <a-entity                        
-        id="dialog"
-        position="1 1.55 -2.9" 
-         class="clickable"                            
-        dialog-popup="
-          openIconImage: img/option3solid.png; 
-          closeIconImage: img/close.png;
-          image: img/info.png;
-          dialogBoxWidth:0px;
-          dialogBoxHeight:0px;
-          imageWidth: 4px;
-          imageHeight:  2px;        
-                      closeIconRadius:0.1px;
-                      "
-                                    
-                    
-                    ></a-entity>
-        
-      <a-image   src="#menu" width="18" height="8" position="0 1.5 -3"
-               scale="0.2 0.2 0.2"></a-image>
+        <a-assets>
+            <img id="360" src="img/titanic360.jpg">
+            <img id="menu" src="navigation/menubar.png">
+            <img id="submenu" src="navigation/submenubar.png">
+            <img id="location" src="navigation/location-icon.png">
+            <img id="3d" src="navigation/3d-icon.png">
+            <img id="information" src="navigation/information-icon.png">
+            <img id="home" src="navigation/home-icon.png">
+            <img id="one" src="navigation/1.png">
+            <img id="two" src="navigation/2.png">
+            <img id="three" src="navigation/6.png">
+            <img id="3done" src="navigation/3d4.png">
+            <img id="3dtwo" src="navigation/3d2.png">
+            <img id="3dthree" src="navigation/3d3.png">
+            <img id="info" src="navigation/tutorial.gif">
+            <img id="hotspot1" src="navigation/hotspot1.png">
+        </a-assets>
 
+        <a-entity ui-modal="triggerElement:#selection;" class="clickable" visible="false">
+
+              <a-image position="-0.8 -1 -2.49" src="#one" scale="0.8 0.79 0" link="href:location1.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+            <a-image position="0 -1 -2.49" src="#two" scale="0.8 0.74 0" link="href:location2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+            <a-image position="0.8 -1 -2.49" src="#three" scale="0.8 0.79 0" link="href:location3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+        </a-entity>
+
+        <a-entity ui-modal="triggerElement:#test;" visible="false">
+
+            <a-image class="clickable" position="-0.8 -1.4 -2.49" src="#3done" scale="0.8 0.79 0" link="href:model2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+            <a-image class="clickable" position="0 -1.4 -2.49" src="#3dtwo" scale="0.8 0.74 0" link="href:model.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+            <a-image class="clickable" position="0.8 -1.4 -2.49" src="#3dthree" scale="0.8 0.79 0" link="href:model3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+        </a-entity>
         
-           <a-image class="clickable" src="#option1" width="17" height="9" position="-1 1.5 -2.99"
-               scale="0.055 0.1 0" link="href:options.html; on: click; visualAspectEnabled: false"></a-image>
-        
-            <a-image class="clickable"  src="#option2" width="13" height="10.5" position="0 1.54 -2.99"
-               scale="0.055 0.1 0" link="href:model.html; on: click; visualAspectEnabled: false"></a-image>
-                
-        
+                <a-entity ui-modal="triggerElement:#text;" visible="true">
+
+       <a-entity scale="2 2 0" position="0 -1 -2.5" text="value: Easily switch locations by hovering over one of the icons, close it by hovering over the same icon.; align:center;lineHeight:70;"></a-entity>
+
+        </a-entity>
+
+        <a-sky src="#360"></a-sky>
+
+        <a-image src="#menu" material="alphaTest: 0.5" width="3" scale="3 3 0" position="0 -0.29 -2.5" src-fit></a-image>
+
+        <a-image class="clickable" src="#home" scale="0.3 0.3 0" position="-1 -0.35 -2.49" link="href:options.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+        <a-image id="selection" class="clickable" src="#location" scale="0.3 0.3 0" position="-0.5 -0.35 -2.49" src-fit></a-image>
+
+        <a-image class="clickable" src="#hotspot1" scale="2 2 0" position="-5 0 3" rotation="5 130 0" audiohandler src-fit></a-image>
+
+        <a-image id="test" class="clickable" src="#3d" scale="0.3 0.3 0" position="0.5 -0.35 -2.49" src-fit></a-image>
+
+        <a-image id="text" class="clickable" src="#information" scale="0.3 0.3 0" position="1 -0.35 -2.49" src-fit></a-image>
+
+        <audio id="audio" crossorigin="anonymous" src="audio/titanic.wav"></audio>
+
     </a-scene>
-      
-      
-            
-              <script>
-        
-        window.addEventListener('vrdisplayactivate' function (evt) {
-  /* A page can now start presenting in the headset */
-  vrDisplay.requestPresent([{ source: myCanvas }]).then(function () { ... });
-}
-        
-        </script>
-      
-  </body>
+
+</body>
+
 </html>

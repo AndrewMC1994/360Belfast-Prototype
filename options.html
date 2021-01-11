@@ -1,73 +1,62 @@
-<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <title>Titanic Quarter</title>
+    <title>360Belfast Menu</title>
     <meta name="description" content="Titanic Quarter">
-    
-<script src="js/aframeTEST.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="js/aframe-dialog-popup-component.js"></script>
+    <script src="js/aframeTEST.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/aframe-src-fit-component.js"></script>
 
 </head>
 
-    <body>
+<body>
 
     <a-scene>
         <a-assets>
             <img id="box" src="img/white.jpg">
             <img id="stroke" src="img/stroke.png">
             <img id="cityhall" src="img/cityhall.jpg">
-             <img id="clock" src="img/clock.jpg">
+            <img id="titanic" src="img/titanic.jpg">
+            <img id="clock" src="img/clock.jpg">
             <img id="logo" src="img/logo.png">
+            <img id="info" src="img/info.png">
+            <img id="info2" src="img/info2.png">
+            <img id="info3" src="img/info3.png">
+            <img id="play" src="img/play.png">
+            <img id="3D" src="img/3d.png">
             <img id="shadow2" src="img/radial-shadow-2.png">
             <img id="background" src="img/360background.jpg">
+            <img id="close" src="img/close.png">
         </a-assets>
-        
-          <a-entity
-        id="dialog"
-        position="0 0 -3" 
-        dialog-popup="
-          openIconImage: img/titanic.jpg; 
-          closeIconImage: img/close.png;
-          image: img/info.png;
-          image2: img/play.png; 
-          dialogBoxWidth:0px;
-          dialogBoxHeight:0px;
-          imageWidth: 4px;
-          imageHeight:  2px;
-          image2Width: 0.75px;
-          image2Height:  0.27px;        
-                    dialogBoxPadding:0px;
-                      closeIconRadius:0.1px;"
-                    
-                    ></a-entity>
-        
- <!-- Stroke --> 
-        
-<a-image position="0 0.07 -3.01" rotation="0 0 0" src="#stroke" width="1.7" height="1"></a-image>
-        
-<a-image position="2.08 0.07 -2.64" rotation="0 -20 0" src="#stroke" width="1.7" height="1"></a-image>
 
-<a-image position="-2.08 0.07 -2.64" rotation="0 20" src="#stroke" width="1.7" height="1"></a-image>
+        <!-- Stroke -->
 
- <!-- White Planes -->        
-        
-<a-image position="2 0 -2.65" rotation="0 -20 0" link="href:location3.html; on: click; visualAspectEnabled: false" src="#cityhall" width="1.7" height="1"></a-image>
-        
-<a-image position="-2 0 -2.65" link="href:location2.html; on: click; visualAspectEnabled: false" rotation="0 20" src="#clock" width="1.7" height="1"></a-image>
-        
- <!-- logo -->    
-        
-<a-image position="0 1 -3" rotation="0 0 0" src="#logo" width="1" height="0.3"></a-image>
+        <a-image position="0 0.07 -3.01" position="0 0.07 -3.01" rotation="0 0 0" src="#stroke" width="1.7" height="1"></a-image>
+
+        <a-image position="2.08 0.07 -2.64" rotation="0 -20 0" src="#stroke" width="1.7" height="1"></a-image>
+
+        <a-image position="-2.08 0.07 -2.64" rotation="0 20" src="#stroke" width="1.7" height="1"></a-image>
+
+        <!-- White Planes -->
+
+        <a-image class="clickable" link="href:location1.html; on: click; visualAspectEnabled: false" position="0 0 -3" rotation="0 0 0" src="#titanic" width="1.7" height="1" ></a-image>
+
+        <a-image class="clickable" link="href:location3.html; on: click; visualAspectEnabled: false" position="2 0 -2.65" rotation="0 -20 0" src="#cityhall" width="1.7" height="1"></a-image>
+
+        <a-image class="clickable" link="href:location2.html; on: click; visualAspectEnabled: false" position="-2 0 -2.65" rotation="0 20" src="#clock" width="1.7" height="1"></a-image>
+
+        <!-- logo -->
+
+        <a-image position="0 1 -3" rotation="0 0 0" src="#logo" width="1" height="0.3"></a-image>
 
         <a-image radius="5.7" position="0 -5 0" src="#shadow2" rotation="-90 0 0" scale="6 6 6"></a-image>
 
         <!-- CURSOR ENTITY -->
-        <a-entity rotation="-10 0 0" position="0 0 0">
-            <a-entity id="camera" camera look-controls rotation="0 0 0" wasd-controls>
+        <a-entity rotation="0 0 0" position="0 0 0">
+            <a-entity id="camera" camera look-controls rotation="-17 0 0" wasd-controls-enabled="false">
                 <!-- MAIN CURSOR -->
-                <a-entity cursor=" fuse: true; maxDistance: 500; timeout: 3000;" id="cursor-main" position="0 0 -2" geometry="primitive: ring; radiusOuter: 0.04; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;" material="color: #439DC2;">
+                <a-entity raycaster="objects: .clickable" cursor="fuse: true; maxDistance: 500; timeout: 3000;" id="cursor-main" position="0 0 -2" geometry="primitive: ring; radiusOuter: 0.04; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;" material="color: #439DC2;">
                     <a-animation begin="cursor-fusing" attribute="geometry.thetaLength" fill="forwards" from="360" to="0" easing="ease-in"></a-animation>
                     <a-animation begin="mouseleave" attribute="geometry.thetaLength" fill="backwards" from="0" to="360" dur="0"></a-animation>
                 </a-entity>
@@ -77,15 +66,21 @@
         </a-entity>
 
         <a-sky src="#background"></a-sky>
-        
+
 
     </a-scene>
-        
+    
         <script>
-        
-        window.addEventListener('vrdisplayactivate' function (evt) {
-  /* A page can now start presenting in the headset */
-  vrDisplay.requestPresent([{ source: myCanvas }]).then(function () { ... });
-}
-        
-        </script>
+        window.addEventListener('vrdisplayactivate'function(evt) {
+                    /* A page can now start presenting in the headset */
+                    vrDisplay.requestPresent([{
+                        source: myCanvas
+                    }]).then(function() {
+                        ...
+                    });
+                }
+    </script>
+    
+</body>
+
+</html>
