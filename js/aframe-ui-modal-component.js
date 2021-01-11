@@ -59,16 +59,16 @@
 	            default: 'click'
 	        },
 	        triggerElement: {
-	          default: '',
+	          default: 'a-scene',
 	        },
 	        zpos: {
-	            default: '0',
+	            default: 0,
 	        }
 	    },
 
 	    init: function() { 
-            
- document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, this.eventHandler.bind(this));
+
+	        document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, this.eventHandler.bind(this));
 
 	        this.cameraEl = document.querySelector('a-entity[camera]');
 
@@ -80,11 +80,6 @@
 
 	        this.el.sceneEl.object3D.add(this.pivot);
 	        this.pivot.add(this.el.object3D);
-            
-            closing.addEventListener(this.data.trigger, e => {
-            this.el.setAttribute("visible", "false")
-    
-})
 
 	    },
 
@@ -109,6 +104,8 @@
 	        }
 
 	    },
+
+	    update: function (oldData) {},
 
 	    remove: function() {}
 

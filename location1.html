@@ -5,93 +5,17 @@
     <meta charset="utf-8">
     <title>Titanic Quarter</title>
     <meta name="description" content="Composite — A-Frame">
-    <script src="js/aframe-master.js"></script>
+    <script src="js/aframeTEST.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/aframe-ui-modal-component.js"></script>
     <script src="js/aframe-src-fit-component.js"></script>
-    <script src="js/aframe-gif-shader.min.js"></script>
-
 </head>
 
 <body>
 
     <a-scene>
-
-        <!-- CURSOR ENTITY -->
-        <a-entity rotation="0 0 0" position="0 0 0">
-            <a-entity id="camera" far: 20; camera look-controls rotation="0 0 0" wasd-controls>
-                <!-- MAIN CURSOR -->
-                <a-entity raycaster="interval: 200; objects: .clickable" cursor="fuse: true; maxDistance: 500; timeout: 1500;" id="cursor-main" position="0 0 -1.5" geometry="primitive: ring; radiusOuter: 0.04; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;" material="color: #439DC2;" animation__cursor-fusing="property: geometry.thetaLength; from: 360; to: 0; easing: easeInQuad; startEvents: mouseenter; dur: 1200" animation__mouseleave="property: geometry.thetaLength; easing: easeOutQuad; from: 0; to: 360; startEvents: mouseleave; dur: 0">
-
-                </a-entity>
-                <a-entity id="cursor-loader" position="0 0 -1.51" geometry="primitive: ring; radiusOuter: 0.04; radiusInner: 0.03;" material="color: #2ADD2A;">
-                </a-entity>
-            </a-entity>
-        </a-entity>
-
-        <a-assets>
-            <img id="360" src="img/titanic360.jpg">
-            <img id="menu" src="navigation/menubar.png">
-            <img id="submenu" src="navigation/submenubar.png">
-            <img id="location" src="navigation/location-icon.png">
-            <img id="3d" src="navigation/3d-icon.png">
-            <img id="information" src="navigation/information-icon.png">
-            <img id="home" src="navigation/home-icon.png">
-            <img id="one" src="navigation/1.png">
-            <img id="two" src="navigation/2.png">
-            <img id="three" src="navigation/3.png">
-            <img id="info" src="navigation/tutorial.gif">
-            <img id="hotspot1" src="navigation/hotspot1.png">
-            <img id="close" src="navigation/close.png">
-        </a-assets>
-
-        <a-entity ui-modal="triggerElement:#selection;" class="clickable" visible="false">
-
-            <a-image position="-0.8 -1 -2.49" src="#one" scale="0.8 0.8 0" link="href:location1.html; on: click; visualAspectEnabled: false" src-fit></a-image>
-
-            <a-image position="0 -1 -2.49" src="#two" scale="0.8 0.74 0" link="href:location2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
-
-            <a-image position="0.8 -1 -2.49" src="#three" scale="0.8 0.8 0" link="href:location3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
-
-        </a-entity>
-
-        <a-entity ui-modal="triggerElement:#test;" class="clickable" visible="false">
-
-            <a-image position="-0.8 -1 -2.49" src="#one" scale="0.8 0.8 0" link="href:location1.html; on: click; visualAspectEnabled: false" src-fit></a-image>
-
-            <a-image position="0 -1 -2.49" src="#two" scale="0.8 0.74 0" link="href:location2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
-
-            <a-image position="0.8 -1 -2.49" src="#three" scale="0.8 0.8 0" link="href:location3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
-
-        </a-entity>
-
-        <a-entity ui-modal="triggerElement:#tutorial;" visible="true">
-
-            <a-entity geometry="primitive:plane;" scale="2.93 1.6 0" position="0 0 -1.62" material="shader:gif;src:url(navigation/tutorial.gif); alphaTest: 0.5" src-fit></a-entity>
-
-            <a-image class="clickable" src="#close" id="closing" scale="0.2 0.2 0" position="1.2 0.6 -1.61"></a-image>
-
-        </a-entity>
-
-        <a-sky src="#360"></a-sky>
-
-        <a-image src="#menu" material="alphaTest: 0.5" width="3" scale="3 3 0" position="0 -0.29 -2.5" src-fit></a-image>
-
-        <a-image class="clickable" src="#home" scale="0.3 0.3 0" position="-1 -0.35 -2.49" link="href:options.html; on: click; visualAspectEnabled: false" src-fit></a-image>
-
-        <a-image id="selection" class="clickable" src="#location" scale="0.3 0.3 0" position="-0.5 -0.35 -2.49" src-fit></a-image>
-
-        <a-image class="clickable" src="#hotspot1" scale="2 2 0" position="-5 0 3" rotation="5 130 0" audiohandler src-fit></a-image>
-
-        <a-image id="test" class="clickable" src="#3d" scale="0.3 0.3 0" position="0.5 -0.35 -2.49" src-fit></a-image>
-
-        <a-image id="tutorial" class="clickable" src="#information" scale="0.3 0.3 0" position="1 -0.35 -2.49" src-fit></a-image>
-
-        <audio id="audio" crossorigin="anonymous" src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Bizet_-_Carmen_-_Toreador_Song_%28French%2C_Musopen%29.ogg"></audio>
-
-    </a-scene>
-
-    <script>
+        
+            <script>
         AFRAME.registerComponent('audiohandler', {
             init: function() {
                 let playing = false;
@@ -108,6 +32,81 @@
             }
         })
     </script>
+
+        <!-- CURSOR ENTITY -->
+        <a-entity rotation="0 0 0" position="0 0 0">
+            <a-entity id="camera" far: 20; camera look-controls rotation="0 0 0" wasd-controls-enabled="false">
+                <!-- MAIN CURSOR -->
+                <a-entity raycaster="interval: 200; objects: .clickable" cursor="fuse: true; maxDistance: 500; timeout: 1500;" id="cursor-main" position="0 0 -1.5" geometry="primitive: ring; radiusOuter: 0.04; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;" material="color: #439DC2;">
+                    <a-animation begin="cursor-fusing" attribute="geometry.thetaLength" fill="forwards" from="360" to="0" easing="ease-in"></a-animation>
+                    <a-animation begin="mouseleave" attribute="geometry.thetaLength" fill="backwards" from="0" to="360" dur="0"></a-animation>
+                </a-entity>
+                <a-entity id="cursor-loader" position="0 0 -1.51" geometry="primitive: ring; radiusOuter: 0.04; radiusInner: 0.03;" material="color: #2ADD2A;">
+                </a-entity>
+            </a-entity>
+        </a-entity>
+
+        <a-assets>
+            <img id="360" src="img/titanic360.jpg">
+            <img id="menu" src="navigation/menubar.png">
+            <img id="submenu" src="navigation/submenubar.png">
+            <img id="location" src="navigation/location-icon.png">
+            <img id="3d" src="navigation/3d-icon.png">
+            <img id="information" src="navigation/information-icon.png">
+            <img id="home" src="navigation/home-icon.png">
+            <img id="one" src="navigation/1.png">
+            <img id="two" src="navigation/2.png">
+            <img id="three" src="navigation/6.png">
+            <img id="3done" src="navigation/3d4.png">
+            <img id="3dtwo" src="navigation/3d2.png">
+            <img id="3dthree" src="navigation/3d3.png">
+            <img id="info" src="navigation/tutorial.gif">
+            <img id="hotspot1" src="navigation/hotspot1.png">
+        </a-assets>
+
+        <a-entity ui-modal="triggerElement:#selection;" class="clickable" visible="false">
+
+              <a-image position="-0.8 -1 -2.49" src="#one" scale="0.8 0.79 0" link="href:location1.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+            <a-image position="0 -1 -2.49" src="#two" scale="0.8 0.74 0" link="href:location2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+            <a-image position="0.8 -1 -2.49" src="#three" scale="0.8 0.79 0" link="href:location3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+        </a-entity>
+
+        <a-entity ui-modal="triggerElement:#test;" visible="false">
+
+            <a-image class="clickable" position="-0.8 -1.4 -2.49" src="#3done" scale="0.8 0.79 0" link="href:model2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+            <a-image class="clickable" position="0 -1.4 -2.49" src="#3dtwo" scale="0.8 0.74 0" link="href:model.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+            <a-image class="clickable" position="0.8 -1.4 -2.49" src="#3dthree" scale="0.8 0.79 0" link="href:model3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+        </a-entity>
+        
+                <a-entity ui-modal="triggerElement:#text;" visible="true">
+
+       <a-entity scale="2 2 0" position="0 -1 -2.5" text="value: Easily switch locations by hovering over one of the icons, close it by hovering over the same icon.; align:center;lineHeight:70;"></a-entity>
+
+        </a-entity>
+
+        <a-sky src="#360"></a-sky>
+
+        <a-image src="#menu" material="alphaTest: 0.5" width="3" scale="3 3 0" position="0 -0.29 -2.5" src-fit></a-image>
+
+        <a-image class="clickable" src="#home" scale="0.3 0.3 0" position="-1 -0.35 -2.49" link="href:options.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+
+        <a-image id="selection" class="clickable" src="#location" scale="0.3 0.3 0" position="-0.5 -0.35 -2.49" src-fit></a-image>
+
+        <a-image class="clickable" src="#hotspot1" scale="2 2 0" position="-5 0 3" rotation="5 130 0" audiohandler src-fit></a-image>
+
+        <a-image id="test" class="clickable" src="#3d" scale="0.3 0.3 0" position="0.5 -0.35 -2.49" src-fit></a-image>
+
+        <a-image id="text" class="clickable" src="#information" scale="0.3 0.3 0" position="1 -0.35 -2.49" src-fit></a-image>
+
+        <audio id="audio" crossorigin="anonymous" src="audio/titanic.wav"></audio>
+
+    </a-scene>
 
 </body>
 

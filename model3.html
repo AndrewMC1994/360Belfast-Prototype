@@ -1,12 +1,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Belfast City Hall 3D Model</title>
+    <title>Harland and Wolff Cranes 3D Model</title>
     <meta name="description" content="Shopping - A-Frame">
-    <script src="js/aframe-master.js"></script>
+    <script src="js/aframeTEST.min.js"></script>
     <script src="js/aframe-animation-component.js"></script>
     <script src="js/aframe-src-fit-component.js"></script>
-    <script src="js/aframe-ui-modal-component-models.js"></script>
+    <script src="js/aframe-ui-modal-component.js"></script>
   </head>
   <body>
    
@@ -29,8 +29,8 @@
   
             <img id="3d" src="buttons/5.png">
             <img id="3d1" src="buttons/2.png">
-            <img id="3d2" src="buttons/7.png">
-            <img id="3d3" src="buttons/4.png">
+            <img id="3d2" src="buttons/3.png">
+            <img id="3d3" src="buttons/8.png">
             <img id="home" src="buttons/home-icon-white.png">
             <img id="location" src="buttons/location-icon-white.png">
                   <img id="one" src="navigation/1.png">
@@ -41,13 +41,11 @@
         
         <a-sky color="#fff"></a-sky>
 
-            <a-image position="2.9 3 -3.15" class="clickable" src="#3d" scale="1.2 1.2 0" link="href:model2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+            <a-image position="2.9 2.5 -3.15" class="clickable" src="#3d" scale="1.2 1.2 0" link="href:model2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
             
-             <a-image position="2.9 2.5 -3.15" class="clickable" src="#3d1" scale="1.2 1.2 0" link="href:model.html; on: click; visualAspectEnabled: false" src-fit></a-image>
-            
-             <a-image position="2.9 2 -3.15" class="clickable" src="#3d2" scale="1.2 1.2 0" link="href:model3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+             <a-image position="2.9 2 -3.15" class="clickable" src="#3d1" scale="1.2 1.2 0" link="href:model.html; on: click; visualAspectEnabled: false" src-fit></a-image>
                     
-            <a-image position="2.9 1.5 -3.15" class="clickable" src="#3d3" scale="1.2 1.2 0" link="href:model4.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+            <a-image position="2.9 1.5 -3.15" class="clickable" src="#3d3" scale="1.2 1.2 0" link="href:model3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
         
         <a-image position="2.6 0.8 -3.15" class="clickable" src="#home" scale="0.4 0.4 0" link="href:options.html; on: click; visualAspectEnabled: false" src-fit></a-image>
         
@@ -55,19 +53,18 @@
         
                 <a-entity ui-modal="triggerElement:#test;" visible="false">
 
-            <a-image position="2.3 -1.2 -3.15" class="clickable" src="#one" scale="0.6 0.6 0" link="href:model2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+            <a-image position="2.3 -1.2 -3.15" class="clickable" src="#one" scale="0.6 0.6 0" link="href:location1.html; on: click; visualAspectEnabled: false" src-fit></a-image>
             
-             <a-image position="2.9 -1.2 -3.15" class="clickable" src="#two" scale="0.6 0.64 0" link="href:model.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+             <a-image position="2.9 -1.2 -3.15" class="clickable" src="#two" scale="0.6 0.64 0" link="href:location2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
             
-             <a-image position="3.5 -1.2 -3.15" class="clickable" src="#three" scale="0.6 0.6 0" link="href:model3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+             <a-image position="3.5 -1.2 -3.15" class="clickable" src="#three" scale="0.6 0.6 0" link="href:location3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
             
             <a-image position="0.5 -0.35 1.15" class="clickable" src="#close2" id="closing2" scale="0.3 0.3 0" ></a-image>
 
         </a-entity>
         
       <a-assets>
-           <a-asset-item id="crate-obj" src="model/belfastcityhall.obj"></a-asset-item>
-    <a-asset-item id="crate-mtl" src="model/belfastcityhall.mtl"></a-asset-item>
+        <a-asset-item id="3dmodel" src="model/crane/crane.dae"></a-asset-item>
       </a-assets>
 
       <a-entity id="model" position="-0.1 0 -3.5" animation__rot="property:rotation;
@@ -75,7 +72,7 @@
                 to:0 360 0;
                 loop: true;
                 easing:linear;">
-        <a-obj-model position="0 0.5 0" rotation="0 -10 0" scale="0.04 0.04 0.04" mtl="#crate-mtl" src="#crate-obj"></a-obj-model>
+        <a-collada-model position="0 0.5 0" rotation="0 -10 0" scale="0.02 0.02 0.02" src="#3dmodel"></a-collada-model>
       </a-entity>
 
       <a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
