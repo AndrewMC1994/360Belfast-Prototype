@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Albert Clock</title>
+    <meta name="description" content="Composite — A-Frame">
+    <script src="js/aframe-master.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/aframe-ui-modal-component2.js"></script>
+    <script src="js/aframe-src-fit-component.js"></script>
+</head>
+
+<body>
+
+    <a-scene>
+
+        <!-- CURSOR ENTITY -->
+        <a-entity rotation="0 0 0" position="0 0 2">
+            <a-entity id="camera" far: 20; camera look-controls rotation="0 0 0" wasd-controls-enabled="false">
+                <!-- MAIN CURSOR -->
+                <a-entity raycaster="interval: 200; objects: .clickable" cursor="fuse: true; maxDistance: 500; timeout: 1500;" id="cursor-main" position="0 0 -1.5" geometry="primitive: ring; radiusOuter: 0.04; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;" material="color: #439DC2;">
+                    <a-animation begin="cursor-fusing" attribute="geometry.thetaLength" fill="forwards" from="360" to="0" easing="ease-in"></a-animation>
+                    <a-animation begin="mouseleave" attribute="geometry.thetaLength" fill="backwards" from="0" to="360" dur="0"></a-animation>
+                </a-entity>
+                <a-entity id="cursor-loader" position="0 0 -1.51" geometry="primitive: ring; radiusOuter: 0.04; radiusInner: 0.03;" material="color: #2ADD2A;">
+                </a-entity>
+            </a-entity>
+        </a-entity>
+
+        <a-assets>
+            <img id="360" src="img/albertclock360.jpg">
+            <img id="menu" src="navigation/menubar.png">
+            <img id="submenu" src="navigation/submenubar.png">
+            <img id="location" src="navigation/location-icon.png">
+            <img id="3d" src="navigation/3d-icon.png">
+            <img id="information" src="navigation/information-icon.png">
+            <img id="home" src="navigation/home-icon.png">
+            <img id="one" src="navigation/4.png">
+            <img id="two" src="navigation/5.png">
+            <img id="three" src="navigation/6.png">
+            <img id="info" src="img/info2.png">
+            <img id="3d1" src="img/icon3d1.png">
+            <img id="3d2" src="img/icon3d2.png">
+            <img id="3d3" src="img/icon3d3.png">
+            <img id="close" src="navigation/close.png">
+            <img id="hotspot1" src="navigation/hotspot2.png">
+        </a-assets>
+
+        <a-entity ui-modal="triggerElement:#selection;" visible="false">
+
+       
+            <a-image position="-0.7 -1 1" class="clickable" src="#one" scale="0.7 0.7 0" link="href:location1.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+            
+             <a-image position="0 -1 1" class="clickable" src="#two" scale="0.7 0.64 0" link="href:location2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+            
+             <a-image position="0.7 -1 1" class="clickable" src="#three" scale="0.7 0.7 0" link="href:location3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+            
+            <a-image class="clickable" src="#close" id="closing" scale="0.3 0.3 0" position="-0.5 -0.35 1.1" ></a-image>
+
+        </a-entity>
+        
+        <a-entity ui-modal="triggerElement:#test;" visible="false">
+
+       
+            <a-image position="-0.7 -1 1" class="clickable" src="#one" scale="0.7 0.7 0" link="href:model2.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+            
+             <a-image position="0 -1 1" class="clickable" src="#two" scale="0.7 0.64 0" link="href:model.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+            
+             <a-image position="0.7 -1 1" class="clickable" src="#three" scale="0.7 0.7 0" link="href:model3.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+            
+            <a-image position="0.5 -0.35 1.15" class="clickable" src="#close" id="closing2" scale="0.3 0.3 0" ></a-image>
+
+        </a-entity>
+
+        <a-entity ui-modal="triggerElement:#infobox;" visible="false">
+
+          <a-image position="0 0.6 1.1" src="#info" scale="3 3 0" src-fit></a-image>
+
+        </a-entity>
+
+        <a-sky src="#360"></a-sky>
+
+        <a-image src="#menu" width="3" scale="3 3 0" position="0 -0.29 -1" src-fit></a-image>
+
+        <a-image class="clickable" src="#home" scale="0.3 0.3 0" position="-1 -0.35 -0.9" link="href:options.html; on: click; visualAspectEnabled: false" src-fit></a-image>
+        
+        <a-image id="hotspot1" class="clickable" src="#hotspot1" scale="1.5 1.5 0" position="-5 0 2" rotation="0 90 0" src-fit></a-image>
+
+        <a-image id="selection" class="clickable" src="#location" scale="0.3 0.3 0" position="-0.5 -0.35 -0.9" src-fit></a-image>
+
+        <a-image id="test" class="clickable" src="#3d" scale="0.3 0.3 0" position="0.5 -0.35 -0.9" src-fit></a-image>
+
+        <a-image id="infobox" class="clickable" src="#information" scale="0.3 0.3 0" position="1 -0.35 -0.9" src-fit></a-image>
+
+    </a-scene>
+
+</body>
+
+</html>

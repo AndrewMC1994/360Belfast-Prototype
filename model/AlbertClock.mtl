@@ -1,0 +1,102 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Marc_Shirt
+Ka 0.000000 0.000000 0.000000
+Kd 0.498039 0.498039 0.498039
+Ks 0.330000 0.330000 0.330000
+
+newmtl ForegroundColor
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl BackColor
+Ka 0.000000 0.000000 0.000000
+Kd 0.643137 0.698039 0.733333
+Ks 0.330000 0.330000 0.330000
+
+newmtl _1
+Ka 0.000000 0.000000 0.000000
+Kd 0.639216 0.611765 0.580392
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/_1.jpg
+
+newmtl Marc_Shirt2
+Ka 0.000000 0.000000 0.000000
+Kd 0.576471 0.541176 0.509804
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/Marc_Shirt2.jpg
+
+newmtl albertClock
+Ka 0.000000 0.000000 0.000000
+Kd 0.654902 0.635294 0.615686
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/albertClock.jpg
+
+newmtl _
+Ka 0.000000 0.000000 0.000000
+Kd 0.643137 0.623529 0.607843
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/_.jpg
+
+newmtl _0133_Gray_
+Ka 0.000000 0.000000 0.000000
+Kd 0.501961 0.501961 0.501961
+Ks 0.330000 0.330000 0.330000
+
+newmtl _2
+Ka 0.000000 0.000000 0.000000
+Kd 0.521569 0.521569 0.521569
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/_2.jpg
+
+newmtl albertClock1_
+Ka 0.000000 0.000000 0.000000
+Kd 0.654902 0.635294 0.615686
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/albertClock1_.jpg
+
+newmtl albertClock2_
+Ka 0.000000 0.000000 0.000000
+Kd 0.654902 0.635294 0.615686
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/albertClock2_.jpg
+
+newmtl albertClock3_
+Ka 0.000000 0.000000 0.000000
+Kd 0.654902 0.635294 0.615686
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/albertClock3_.jpg
+
+newmtl albertClock4_
+Ka 0.000000 0.000000 0.000000
+Kd 0.654902 0.635294 0.615686
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/albertClock4_.jpg
+
+newmtl albertClock5_
+Ka 0.000000 0.000000 0.000000
+Kd 0.654902 0.635294 0.615686
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/albertClock5_.jpg
+
+newmtl Marc_Shoes
+Ka 0.000000 0.000000 0.000000
+Kd 0.529412 0.525490 0.552941
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/Marc_Shoes.jpg
+
+newmtl _1_
+Ka 0.000000 0.000000 0.000000
+Kd 0.643137 0.623529 0.607843
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/_1_.jpg
+
+newmtl albertClock6_
+Ka 0.000000 0.000000 0.000000
+Kd 0.654902 0.635294 0.615686
+Ks 0.330000 0.330000 0.330000
+map_Kd AlbertClock/albertClock6_.jpg
+
